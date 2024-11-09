@@ -1,0 +1,92 @@
+@font-face {
+    font-family: 'DOSfont';
+    src:  url('../fonts/ModernDOS9x14.woff2') format('woff2'),
+          url('../fonts/ModernDOS9x14.woff') format('woff');
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 1ch;
+    background-color: black;
+    font-family: 'DOSfont', Fallback, monospace;
+    color: white;
+    font-size: calc(0.25rem + 1vw);
+    line-height: 1;
+}
+
+a {
+    text-decoration: none;    
+    color: inherit;           
+    outline: none; 
+}
+
+.wrapper {
+    width: 120ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title {
+    /* font-family: Arial, Helvetica, sans-serif; */
+    color: #304ba3;
+    white-space: pre-wrap;
+
+}
+
+.nav {
+    color: white;
+    white-space: pre-wrap;
+}
+
+.window .bar {
+    background-color: #ae2573;
+    padding-left: 1ch;
+    width: calc(100% - 1ch);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.grid-2-1 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1ch;
+}
+
+.window {
+    position: relative;
+    border: 3px solid white;
+    box-sizing: border-box;
+    padding: 1ch;
+    padding-top: 2ch;
+    width: 100%;
+}
+
+.footer {
+    width: calc(100% - 1ch);
+    background-color: #304ba3;
+    margin-top: 1ch;
+    padding-left: 1ch;
+}
+
+.b-titel {
+    text-decoration: underline;
+    margin-bottom: 1ch;
+    width: 100%;
+}
+
+.b-text {
+    white-space: pre-line;
+    /* overflow-wrap: break-word; */
+    /* word-break: break-all; */
+    /* hyphens: auto; */
+}
+
+.c-cyan {
+    color: rgb(0, 192, 192);
+}

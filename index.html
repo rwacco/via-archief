@@ -1,294 +1,54 @@
 <!DOCTYPE html>
 <html>
-<meta charset=utf-8>
-<title>VIA - Archiefcommissie</title>
-<meta http-equiv=Content-Language content=nl>
+    <head>
+        <title>via - Archief</title>
+        <meta charset="UTF-8"> 
+        <link rel="stylesheet" href="/static/css/style_bbs.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="/static/js/keychecker.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <div class="title" style="position: relative;">██╗   ██╗██╗ █████╗        █████╗ ██████╗  ██████╗██╗  ██╗██╗███████╗███████╗
+██║   ██║██║██╔══██╗      ██╔══██╗██╔══██╗██╔════╝██║  ██║██║██╔════╝██╔════╝
+██║   ██║██║███████║█████╗███████║██████╔╝██║     ███████║██║█████╗  █████╗  
+╚██╗ ██╔╝██║██╔══██║╚════╝██╔══██║██╔══██╗██║     ██╔══██║██║██╔══╝  ██╔══╝  
+ ╚████╔╝ ██║██║  ██║      ██║  ██║██║  ██║╚██████╗██║  ██║██║███████╗██║     
+  ╚═══╝  ╚═╝╚═╝  ╚═╝      ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝╚══════╝╚═╝     <img src="/logo blauw.svg" style="position: absolute; top: 0; right: 0; height: 100%;"></div>
+                <div class="nav">════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+<a href="/"><span class="c-cyan">[H]</span>ome</a> <a href="/archief"><span class="c-cyan">[A]</span>rchief</a> <a href="/archief"><span class="c-cyan">[B]</span>erichten</a> <span class="c-cyan">[S]</span>tatistieken
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════</div>
+            </div>
+            <div class="content">
+                <div class="grid-2-1">
+                    <div class="window">
+                        <div class="bar">Berichten</div>
+                        <div class="bericht">
+                            <div class="b-titel"><a href="/bericht/1"><span class="c-cyan">[1]</span> Dit is een hele spannende titel!!</a></div>
+                            <span class="b-text">Een Vlaams Intersectoraal Akkoord (VIA) is een akkoord tussen de Vlaamse sociale partners enerzijds en de Vlaamse Regering anderzijds.
 
-<meta http-equiv="Content-Security-Policy" content="script-src 'self' http://localhost:8000 'unsafe-inline'; object-src 'self';">
-<style>
-    A {
-        COLOR: #444477;
-        TEXT-DECORATION: none
-    }
+De akkoorden hebben betrekking op alle thema's met een sociaaleconomische dimensie die behoren tot de bevoegdheid van de Vlaamse Gemeenschap of het Vlaams Gewest en worden voorbereid, onderhandeld en afgesloten in het sociaal overleg van de Sociaal-Economische Raad van Vlaanderen (SERV) en het Vlaams Economisch Sociaal Overlegcomité (VESOC).
 
-    A:hover {
-        TEXT-DECORATION: underline
-    }
+Het eerste akkoord had betrekking op de periode 1999-2000, de daaropvolgende akkoorden hebben een loopduur van vijf jaar.
 
-    TD {
-        FONT: 10pt Arial, Helvetica, sans-serif
-    }
+De Vlaamse overheid staat in voor de subsidiëring van de organisaties die de maatregelen, bepaald in deze akkoorden, uitvoeren. De maatregelen die vervat zitten in de drie opeenvolgende VIA-akkoorden, kunnen gegroepeerd worden in drie rubrieken:
 
-    TABLE {
-        FONT-FAMILY: Arial, Helvetica, sans-serif;
-        FONT-SIZE: 10pt
-    }
-
-    HR {
-        HEIGHT: 1px
-    }
-
-    TABLE.box {
-        BORDER: solid #cccccc 1px;
-        BORDER-COLLAPSE: COLLAPSE
-    }
-
-    IMG {
-        border-width: 0px;
-        border-style: none
-    }
-    /* Container for iframe */
-    .iframe-container {
-        position: relative;
-        width: 100%;
-        padding-bottom: 141.4%; 
-        height: 0;
-        overflow: hidden;
-    }
-
-    /* The iframe itself */
-    .iframe-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-</style>
-<meta name=referrer content=no-referrer>
-<style>
-    .sf-hidden {
-        display: none !important
-    }
-</style>
-<style>
-    img[src="data:,"],
-    source[src="data:,"] {
-        display: none !important
-    }
-</style>
-
-<script src="http://localhost:8000/pdfjs/build/pdf.mjs" type="module"></script>
-
-<script type="module">
-    const url = 'https://drive.google.com/uc?export=download&id=1PswhTYKe0uVUgN2ZlSCq4s3QS52ikb0S';  // Google Drive PDF link
-
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'http://localhost:8000/pdfjs/build/pdf.worker.mjs';
-    
-    // Load PDF.js
-    pdfjsLib.getDocument(url).promise.then(function(pdf) {
-        console.log('PDF loaded');
-        pdf.getPage(1).then(function(page) {
-            const scale = 1.5;
-            const viewport = page.getViewport({ scale: scale });
-
-            // Prepare the canvas
-            const canvas = document.getElementById('pdf-canvas');
-            const context = canvas.getContext('2d');
-            canvas.width = viewport.width;
-            canvas.height = viewport.height;
-
-            // Render the page
-            page.render({
-                canvasContext: context,
-                viewport: viewport
-            });
-        });
-    }).catch(function(error) {
-        console.error('Error: ' + error);
-    });
-</script>
-
-</head>
-
-<body bgcolor=#FFFFFF cz-shortcut-listen=true>
-    <center>
-        <table border=0 cellspacing=0 cellpadding=0 style=width:750px;margin-left:auto;margin-right:auto>
-            <tbody>
-                <tr>
-                    <td>
-                        <img src="header.jpg" width=750 height=85 usemap=#Map alt="Studievereniging VIA" border=0>
-                        <map name=Map>
-
-                            <area href=#
-                                alt=Home shape=rect coords="0, 0, 406, 65" class=sf-hidden>
-                            <area href=#
-                                alt="Wat is VIA?" shape=rect coords="308, 69, 452, 81" class=sf-hidden>
-                            <area href=#
-                                alt=Informatie shape=rect coords="465, 68, 534, 80" class=sf-hidden>
-                            <area href=#
-                                alt=Activiteiten shape=rect coords="545, 69, 619, 81" class=sf-hidden>
-                            <area href=#
-                                alt=Onderwijs shape=rect coords="631, 70, 695, 81" class=sf-hidden>
-                            <area href=#
-                                alt=Links shape=rect coords="707, 68, 742, 81" class=sf-hidden>
-
-                        </map>
-                </tr>
-        </table>
-    </center>
-    <table align=center width=760 border=0 cellspacing=0 cellpadding=0
-        style=height:350px;margin-left:auto;margin-right:auto>
-        <tbody>
-            <tr>
-                <td valign=top style=width:560px>
-                    <table width=100% border=0 cellspacing=5 cellpadding=0>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <table width=100% border=1 cellspacing=0 cellpadding=0 class=box>
-                                        <tbody>
-                                            <tr>
-                                                <td style=background-color:#E9E9E9>
-                                                    <a href=# />PDF-test</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td valign=top style=padding:2px>
-                                                    <div class="iframe-container"><iframe src="https://drive.google.com/file/d/1PswhTYKe0uVUgN2ZlSCq4s3QS52ikb0S/preview"></iframe></div>
-                                                    <!-- <canvas id="pdf-canvas"></canvas> -->
-                                                </td>
-                                            </tr>
-                                    </table>
-                                </td>
-                            </tr>
-
-                    </table>
-                </td>
-                <td valign=top style=width:200px>
-                    <table width=100% border=0 cellspacing=5 cellpadding=0>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <table width=100% border=1 cellspacing=0 cellpadding=0 class=box>
-                                        <tbody>
-                                            <tr>
-                                                <td style=background-color:#E9E9E9><a
-                                                        href=https://web.archive.org/web/20020210121408/http://via.uvastudent.net:8080/agenda /><img
-                                                        src=data:image/gif;base64,R0lGODlhMQARAMQQACAgIPDw8DAwMMDAwGBgYNDQ0JCQkHBwcKCgoFBQULCwsODg4EBAQBAQEICAgAAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABAALAAAAAAxABEAAAXcICSOZGmeaKqubOu+cCy3xTDM+Mk8T+6Pu17K0OA9AAsIotgQ8CCB4INRgPASAB4CMmAWe4osr3Fb8AAHHgHyNfacD0IRYHUf2fZetnEoCkQLDgcJPAwDPAcBYgU8Ag5BjEcBcJEEik8BBg5ymGICRYY8DhBwh3mmDBBBpqNBqmdfEAY8BpGpTHAPAYWZDg67U6+6Z2k8lZc9kW6pCEaxDnZrhcIQxW4BbUYiCgQECAq+EJsOC3AiA48OW+LqSuGyBAbgowWDBujkKV9wCT8zCrkSBPBHsKDBgxBCAAA7
-                                                        alt=Agenda hspace=3 border=0></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td valign=top style=padding:2px>
-                                                    <table width=100% border=0 cellspacing=0 cellpadding=0>
-
-                                                        <tbody>
-                                                            <tr>
-                                                                <td valign=top><a
-                                                                        href=https://web.archive.org/web/20020210121408/http://via.uvastudent.net:8080/agenda/27>
-                                                                        Valentijnsborrel
-                                                                    </a></td>
-                                                                <td valign=top style=white-space:nowrap>
-                                                                    14-02
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td valign=top><a
-                                                                        href=https://web.archive.org/web/20020210121408/http://via.uvastudent.net:8080/agenda/28>
-                                                                        Filmavond
-                                                                    </a></td>
-                                                                <td valign=top style=white-space:nowrap>
-                                                                    21-02
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td valign=top><a
-                                                                        href=https://web.archive.org/web/20020210121408/http://via.uvastudent.net:8080/agenda/29>
-                                                                        Roeterborrel
-                                                                    </a></td>
-                                                                <td valign=top style=white-space:nowrap>
-                                                                    27-02
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td valign=top><a
-                                                                        href=https://web.archive.org/web/20020210121408/http://via.uvastudent.net:8080/agenda/24>
-                                                                        Algemene voorlichtin...
-                                                                    </a></td>
-                                                                <td valign=top style=white-space:nowrap>
-                                                                    02-03
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td valign=top><a
-                                                                        href=https://web.archive.org/web/20020210121408/http://via.uvastudent.net:8080/agenda/22>
-                                                                        Boston 2002
-                                                                    </a></td>
-                                                                <td valign=top style=white-space:nowrap>
-                                                                    17-04
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td valign=top><a
-                                                                        href=https://web.archive.org/web/20020210121408/http://via.uvastudent.net:8080/agenda/25>
-                                                                        Voorlichtingsdag op ...
-                                                                    </a></td>
-                                                                <td valign=top style=white-space:nowrap>
-                                                                    07-06
-                                                                </td>
-                                                            </tr>
-
-
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <table width=100% border=1 cellspacing=0 cellpadding=0 class=box>
-                                        <tbody>
-                                            <tr>
-                                                <td style=background-color:#E9E9E9><a
-                                                        href=https://web.archive.org/web/20020210121408/http://via.uvastudent.net:8080/doc/13><img
-                                                            src="data:image/gif;base64,R0lGODlhQQARAMQQAPDw8BAQEHBwcKCgoGBgYNDQ0CAgIJCQkODg4FBQUDAwMLCwsEBAQICAgMDAwAAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABAALAAAAABBABEAAAX/ICSOZGmeaKqubOu+cCzPtOk4RU0CN8A7AN3p8WAIRQ7iTXksEY1HRKOBkFJTBQbxQQgSCYFHIDcgGp6QwpmY8Iq3jwLgCxEolckHUGvOAcIPCkQCEHBsCIZFf2J2XIVbCWEHZWIAggR5S3oNRA1hDRALRAcQggGPDHNFlAcFT6JFDWuPBj4ERQlbB0QLmZmcDwYMAkG7ehB8j6BPxg6oxoaPBCKwT2+nvkoAYFsKaa9h3p2oeQq3Ra5cAFOk4yJrBukPhNl6AwIJWUQi51vO42gEwTHSD+ADUCIaEVqTo56DRlsIibiX4AqEKc6mDICwLsGAAQ02QrjHoIGziyZHH1hBEKoBKQhWHjIBOUxkk5sX/eHcWSJXEZ5AgwqNEQIAOw=="
-                                                            alt=Onderwijs hspace=3 border=0></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td valign=top style=padding:2px>
-                                                    <img src=data:image/gif;base64,R0lGODlhBAAJAPcAAAAAABAQECkpKUJCQtbW1u/v7////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAAYALAAAAAAEAAkAAAgfAAkYGBhAoAEABQ8iJACg4YCGAgoAiGiAooECAw0EBAA7
-                                                        hspace=3 alt="> "><a
-                                                        href=https://web.archive.org/web/20020210121408/http://via.uvastudent.net:8080/doc/12>Openingstijden
-                                                        boekenverkoop</a><br>
-                                                </td>
-                                            </tr>
-
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <table width=100% border=1 cellspacing=0 cellpadding=0 class=box>
-                                        <tbody>
-                                            <tr>
-                                                <td valign=top style=padding:2px>
-                                                    <a
-                                                        href=https://svia.nl/commissie/archief><img
-                                                            src="logo-commissie.png"
-                                                            width=182 alt="Archiefcommissie" border=0></a>
-                                                </td>
-                                            </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                    </table>
-                </td>
-            </tr>
-    </table>
-    <table width=100% border=0 cellspacing=0 cellpadding=0 style=margin-left:auto;margin-right:auto>
-        <tbody>
-            <tr>
-                <td align=center>
-                    <hr style=width:750px>
-
-                </td>
-            </tr>
-    </table>
-</body>
+- verhoging van de koopkracht;
+- verbetering van de kwaliteit van de arbeid: managementondersteuning, vorming, extra-verlof, werkdrukvermindering;
+- uitbreiding van de werkgelegenheid.</span>
+                        </div>
+                        <hr style="width: 20%; margin-left: auto; margin-right: auto; color: white">
+                        <div style="text-align:center;"><a href="/berichten"><span class="c-cyan">[B]</span> Lees meer berichten</a></div>
+                    </div>
+                    <div class="window">
+                        <div class="bar">Nieuwe aanwinsten</div>
+                        <a href="/archief"><span class="c-cyan">[N1]</span> Brief van Edsger Dijkstra aan AVNS</a><br>
+                        <a href="/archief"><span class="c-cyan">[N2]</span> Brief van Edsger Dijkstra aan AVNS</a>
+                    </div>
+                </div>
+                <div class="footer"> <span style="font-weight: bold;">via</span> - Archiefcommissie</div>
+            </div>
+        </div>
+    </body>
+</html>

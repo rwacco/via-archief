@@ -1,3 +1,5 @@
+from quart import Quart, render_template
+
 def main():
     print("Hello from via-archief!")
 
