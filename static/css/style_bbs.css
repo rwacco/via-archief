@@ -78,6 +78,7 @@ a {
     text-decoration: underline;
     margin-bottom: 1ch;
     width: 100%;
+    text-decoration-thickness: 3px; 
 }
 
 .b-text {

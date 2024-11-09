@@ -1,4 +1,4 @@
-from quart import Quart, render_template
+from quart import Quart, render_template, request, session, g, config
 
 def main():
     print("Hello from via-archief!")
