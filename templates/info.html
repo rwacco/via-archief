@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Informatie{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="window">
+            <div class="bar">Over deze website</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="window">
+            <div class="bar">Over de commissie</div>
+            {{ g.c_page_content | safe }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="window">
+            <div class="bar">Commissieleden</div>
+            <div class="member-container">
+                {% for m in g.c_info["group"]["users"] %}
+                <div class="member-element">
+                    <div>
+                        <img src="data:image/png;base64,{{ m['img'] }}" alt="{{ m['name'] }}">
+                    </div>
+                    <div>
+                        {{ m["name"] }}
+                        {% if m["coordinator"] == True%}<br><u>Coördinator</u>{% endif %}
+                    </div>
+                </div> <div style="flex-grow: 1;"></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

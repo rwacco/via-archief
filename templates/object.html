@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ g.obj.get_value_by_name("Naam") }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-0">
+    <div class="row gx-3">
+        <div class="col-lg-8 col-12">
+            <div class="window">
+                <div class="bar">{{ g.obj.get_value_by_name("Naam") }}</div>
+                {% if g.obj.get_value_by_name('Google Drive-ID') %}
+                    <div class="pdf-container"><iframe src="https://drive.google.com/file/d/{{ g.obj.get_value_by_name('Google Drive-ID') }}/preview"></iframe></div>
+                {% else %}
+                    <div class="no-preview"><p>Dit object is helaas niet digitaal beschikbaar</p></div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-lg-4 col-12">
+            <div class="window">
+                <div class="bar">Informatie</div>
+                {% if g.obj.meta_layout %}
+                    {% for field_id in g.obj.meta_layout %}
+                        <div class="meta-field"><div class="label">{{ g.obj.meta_fields[field_id]["name"] }}:</div><div class="value">{{ g.obj.meta_fields[field_id]["value"] }}</div></div>
+                    {% endfor %}
+                {% else %}
+                    {% for field in g.obj.meta_fields.values() %}
+                        <div class="meta-field"><div class="label">{{ field["name"] }}:</div><div class="value">{{ field["value"] }}</div></div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

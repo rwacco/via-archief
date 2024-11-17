@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-0">
+    <div class="row gx-3">
+        <div class="col-lg-8 col-12">
+            <div class="window">
+                <div class="bar">Berichten</div>
+                {% for m in g.latest_msgs %}
+                <div class="bericht">
+                    <div class="b-titel"><a href="/bericht/{{ m.id }}"><span class="c-cyan">[{{ loop.index0 }}]</span> {{ m.title }}</a></div>
+                    <span class="b-text">{{ m.content }}</span>
+                </div>
+                <hr style="width: 20%; margin-left: auto; margin-right: auto; background-color: white; border: 0; height: 3px;">
+                {% endfor %}
+                <div style="text-align:center;"><a href="/berichten"><span class="c-cyan">[B]</span> Lees meer berichten</a></div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-12">
+            <div class="window">
+                <div class="bar">Nieuwe aanwinsten</div>
+                {% for obj in g.latest_objs %}
+                <a href="/archief/object/{{ obj['col_name'] | urlencode }}_{{ obj['index'] }}"><span class="c-cyan">[N{{ loop.index0 }}]</span> {{ obj["name"] }}</a><br>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

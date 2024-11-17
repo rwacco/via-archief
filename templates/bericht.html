@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{ g.msg.title }}{% endblock %}
+
+{% block content %}
+<div class="window">
+    <div class="bar">{{ g.msg.title }}</div>
+    <div class="">
+        {{ g.msg.content }}
+    </div>
+</div>
+{% endblock %}

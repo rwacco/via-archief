@@ -2,7 +2,8 @@ const keymap = {
     "h": "/",
     "a": "/archief",
     "b": "/berichten",
-    "s": "/statistieken"
+    "s": "/statistieken",
+    "i": "/informatie"
 };
 
 let prevKey = null;
@@ -14,13 +15,13 @@ $(document).ready(function() {
         // Get key and code information
         const key = String(event.key).toLowerCase();
 
-        if (prevKey == "n" && /^[1-9]$/.test(key)) {
+        if (prevKey == "n" && /^[0-9]$/.test(key)) {
             window.location.href = `/object/latest/${key}`;
             prevKey = key;
             return;
         }
 
-        if (/^[1-9]$/.test(key)) {
+        if (/^[0-9]$/.test(key)) {
             window.location.href = `/bericht/latest/${key}`;
             prevKey = key;
             return;

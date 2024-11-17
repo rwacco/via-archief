@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Berichten{% endblock %}
+
+{% block content %}
+<div class="window">
+    <div class="bar">Berichten</div>
+    {% for m in g.latest_msgs %}
+    <div class="bericht">
+        <div class="b-titel"><a href="/bericht/{{ m.id }}"><span class="c-cyan">[{{ loop.index0 }}]</span> {{ m.title }}</a></div>
+        <span class="b-text">{{ m.content }}</span>
+    </div>
+    <hr style="width: 20%; margin-left: auto; margin-right: auto; background-color: white; border: 0; height: 3px;">
+    {% endfor %}
+</div>
+{% endblock %}

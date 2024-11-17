@@ -15,7 +15,7 @@ body {
     background-color: black;
     font-family: 'DOSfont', Fallback, monospace;
     color: white;
-    font-size: calc(0.25rem + 1vw);
+    font-size: 1.5rem;
     line-height: 1;
 }
 
@@ -23,6 +23,18 @@ a {
     text-decoration: none;    
     color: inherit;           
     outline: none; 
+}
+
+u {
+    text-decoration-thickness: 3px; 
+}
+
+.footer {
+    width: 100%;
+    background-color: #304ba3;
+    margin-top: 1ch;
+    padding-left: 1ch;
+    clear: both;
 }
 
 .wrapper {
@@ -40,39 +52,53 @@ a {
 
 .nav {
     color: white;
-    white-space: pre-wrap;
+    white-space: pre;
 }
+
+ hr {
+    margin: 0;
+    margin-top: 0.75ch;
+    margin-bottom: 0.75ch;
+    padding: 0;
+    width: 100%;
+    color: white !important;
+    height: 1px !important;
+    border-top:2px solid white !important;
+    border-bottom:2px solid white !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    opacity: 100%;
+}
+
+.nav-right {
+    float: right;
+}
+
+.nav-current {
+    text-decoration: underline;
+    text-decoration-thickness: 3px; 
+}
+
+.window {
+    position: relative;
+    box-sizing: border-box;
+    border: 3px solid white;
+    padding: 1ch;
+    padding-top: 3ch;
+    margin-bottom: 1ch;
+    /* margin-left: 1ch; */
+}
+
 
 .window .bar {
     background-color: #ae2573;
     padding-left: 1ch;
-    width: calc(100% - 1ch);
+    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
 }
 
-.grid-2-1 {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 1ch;
-}
-
-.window {
-    position: relative;
-    border: 3px solid white;
-    box-sizing: border-box;
-    padding: 1ch;
-    padding-top: 2ch;
-    width: 100%;
-}
-
-.footer {
-    width: calc(100% - 1ch);
-    background-color: #304ba3;
-    margin-top: 1ch;
-    padding-left: 1ch;
-}
 
 .b-titel {
     text-decoration: underline;
@@ -90,4 +116,65 @@ a {
 
 .c-cyan {
     color: rgb(0, 192, 192);
+}
+
+.pdf-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 141.4%; 
+    height: 0;
+    overflow: hidden;
+}
+
+
+.pdf-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.meta-field {
+    margin-bottom: 1ch;
+    text-align: left;
+}
+
+.meta-field .label {
+    font-weight: bold;
+    display: inline-block;
+    width: fit-content;
+}
+
+.meta-field .value {
+    margin-left: 1ch;
+    font-weight: lighter;
+    display: inline-block;
+    width: fit-content;
+}
+
+.no-preview {
+    /* background-color: #da291c; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.member-container {
+    display: flex;
+    padding-top: 1ch;
+    margin-right: 2ch;
+    overflow: auto;
+}
+
+
+.member-container img {
+    width: 15ch;
+}
+
+.member-element {
+    width: fit-content;
 }
